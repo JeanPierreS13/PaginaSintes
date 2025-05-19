@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explora el Mundo del Sonido Electrónico</title>
+  <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.js"></script>
+
+
+</head>
+
+
+<body>
+
+  <!-- Menú de navegación -->
+  <header>
+
+    <nav class="navbar">
+      <h1 class="logo">🎛️ Sintetizadores</h1>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#que-es">¿Qué es un sintetizador?</a></li>
+        <li><a href="#formas-onda">Formas de onda</a></li>
+        <li><a href="#tipos-sintesis">Tipos de síntesis</a></li>
+        <li><a href="#equipos">Equipos</a></li>
+        <li><a href="#interactivo">Interactivo</a></li>
+        <li><a href="#creditos">Créditos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección de inicio -->
+<section id="inicio" class="hero">
+  <div class="slider">
+    <img src="https://res.cloudinary.com/dcpxrj7oh/image/upload/v1747615821/synth_1_cv2ldg.jpg" alt="Sintetizador 1" class="slide active" />
+    <img src="https://res.cloudinary.com/dcpxrj7oh/image/upload/v1747615817/synth_2_u2jpnu.png" alt="Sintetizador 2" class="slide" />
+    <img src="https://res.cloudinary.com/dcpxrj7oh/image/upload/v1747615819/synth_3_iwxk92.jpg" alt="Sintetizador 3" class="slide" />
+  </div>
+  <div class="welcome-text">
+    <h2>Explora el Mundo del Sonido Electrónico</h2>
+    <p>Descubre cómo los sintetizadores crean música a partir de ondas.</p>
+  </div>
+</section>
+
+
+  <!-- Aquí irán las secciones más adelante -->
+
+ <!-- Sección: ¿Qué es un sintetizador? -->
+<section id="que-es" class="section">
+  <div class="container">
+    <div class="text-content">
+      <h2>¿Qué es un sintetizador?</h2>
+      <p>
+        Un sintetizador es un instrumento musical electrónico que genera sonidos mediante la manipulación de señales eléctricas.
+        Utiliza osciladores, filtros, envolventes y moduladores para crear una variedad de sonidos, desde imitaciones de instrumentos hasta timbres completamente nuevos.
+      </p>
+
+      <h3>Breve historia</h3>
+      <p>
+        Los primeros sintetizadores comerciales surgieron en los años 60, destacando el famoso <strong>Moog Modular</strong>. A partir de entonces, revolucionaron la música electrónica y experimental, siendo usados por artistas como Wendy Carlos, Kraftwerk y Jean-Michel Jarre.
+      </p>
+
+      <h3>Analógico vs. Digital</h3>
+      <ul>
+        <li><strong>Analógicos:</strong> usan circuitos eléctricos reales, osciladores y filtros físicos. Su sonido es cálido y orgánico.</li>
+        <li><strong>Digitales:</strong> generan sonidos por medio de algoritmos y procesamiento digital. Son versátiles y más compactos.</li>
+      </ul>
+
+      <h3>Ejemplos de sonidos</h3>
+      <p>
+        Escucha algunos ejemplos de sonidos sintetizados:
+      </p>
+      <ul>
+        <li><a href="https://soundcloud.com/analogmania/moog-bassline-demo" target="_blank">Bajo tipo Moog (SoundCloud)</a></li>
+        <li><a href="https://soundcloud.com/arturia-official/arturia-minifreak-demo" target="_blank">Pad digital moderno</a></li>
+        <li><a href="https://soundcloud.com/juno-106/roland-juno106-strings" target="_blank">Cuerdas vintage Juno-106</a></li>
+      </ul>
+    </div>
+
+    <div class="image-content">
+      <img src="https://i.imgur.com/Y5GbUuc.jpg" alt="Comparación sintetizador clásico y moderno" />
+      <p style="font-size: 0.9rem; color: #666;">Izquierda: Moog clásico · Derecha: Sintetizador digital moderno</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: Formas de onda -->
+<section id="formas-de-onda" class="section">
+  <div class="container">
+    <div class="text-content">
+      <h2>Formas de onda</h2>
+      <p>
+        En la síntesis de sonido, todo parte de una forma de onda. Cada una tiene un carácter y timbre distintos que influyen en cómo percibimos el sonido.
+      </p>
+      
+      <!-- Onda senoidal -->
+      <div class="wave-block">
+        <h3>Onda Senoidal</h3>
+        <p>Es la onda más pura. No contiene armónicos, solo la frecuencia fundamental. Se usa para sonidos suaves como flautas o tonos puros.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Sine_wave.svg/500px-Sine_wave.svg.png" alt="Onda senoidal">
+        <button onclick="playSine()">Escuchar</button>
+      </div>
+
+      <!-- Onda cuadrada -->
+      <div class="wave-block">
+        <h3>Onda Cuadrada</h3>
+        <p>Alterna entre dos valores extremos. Suena brillante y áspera. Se usa en bajos y sonidos tipo 8-bits.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Square_wave.svg/500px-Square_wave.svg.png" alt="Onda cuadrada">
+        <button onclick="playSquare()">Escuchar</button>
+      </div>
+
+      <!-- Onda triangular -->
+      <div class="wave-block">
+        <h3> Onda Triangular</h3>
+        <p>Similar a la cuadrada pero más suave. Contiene armónicos impares pero de menor intensidad. Suena hueca y nasal.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Triangle_wave.svg/500px-Triangle_wave.svg.png" alt="Onda triangular">
+        <button onclick="playTriangle()">Escuchar</button>
+      </div>
+
+      <!-- Onda diente de sierra -->
+      <div class="wave-block">
+        <h3>Onda Diente de Sierra</h3>
+        <p>Contiene todos los armónicos. Suena agresiva y rica. Es ideal para leads y pads complejos.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Sawtooth_wave.svg/500px-Sawtooth_wave.svg.png" alt="Onda diente de sierra">
+        <button onclick="playSawtooth()">Escuchar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sección: TIPOS DE SINTESIS -->
+
+<section id="tipos-sintesis" class="seccion">
+  <h2>🎛️ Tipos de Síntesis</h2>
+  <p>Los sintetizadores utilizan distintos métodos para generar y manipular sonidos. A continuación, exploramos los más comunes.</p>
+
+  <div class="sintesis">
+    <h3>🎚️ Síntesis Substractiva</h3>
+    <p>Consiste en partir de una onda rica (como diente de sierra) y aplicar filtros para eliminar frecuencias no deseadas. Es la forma más tradicional y usada en sintetizadores analógicos.</p>
+    <img src="img/substractiva.jpg" alt="Síntesis substractiva - Minimoog">
+  </div>
+
+  <div class="sintesis">
+    <h3>📡 Síntesis FM (Frecuencia Modulada)</h3>
+    <p>Genera sonidos mediante la modulación de la frecuencia de una onda portadora. Fue popularizada por el Yamaha DX7 y permite crear sonidos metálicos y complejos.</p>
+    <img src="img/fm.jpg" alt="Yamaha DX7 - FM Synth">
+  </div>
+
+  <div class="sintesis">
+    <h3>➕ Síntesis Aditiva</h3>
+    <p>Basada en sumar múltiples ondas senoidales simples para construir un sonido complejo. Se usa en órganos, sintetizadores software y efectos especiales.</p>
+    <img src="img/aditiva.jpg" alt="Síntesis aditiva">
+  </div>
+
+  <div class="sintesis">
+    <h3>🌊 Síntesis por Tabla de Ondas (Wavetable)</h3>
+    <p>Utiliza bancos de formas de onda pregrabadas entre las que se puede interpolar. Muy usada en música electrónica moderna, con sonidos dinámicos y evolutivos.</p>
+    <img src="img/wavetable.jpg" alt="Wavetable synthesis - Serum">
+  </div>
+</section>
+
+<!-- SECCION EQUIPOS -->
+
+    <section id="equipos">
+  <h2>🎛️ Equipos necesarios para producir sonido con sintetizadores</h2>
+  <div class="tarjetas-equipos">
+
+    <div class="tarjeta">
+      <img src="img/controlador-midi.jpg" alt="Controlador MIDI">
+      <h3>Controlador MIDI</h3>
+      <p>Permite controlar sintetizadores y software musical a través de teclas, pads y perillas.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="img/monitores.jpg" alt="Monitores de estudio">
+      <h3>Monitores de Estudio</h3>
+      <p>Altavoces diseñados para ofrecer una respuesta plana y precisa en la mezcla de audio.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="img/interfaz-audio.jpg" alt="Interfaz de Audio">
+      <h3>Interfaz de Audio</h3>
+      <p>Convierte señales analógicas a digitales y permite grabar y monitorear desde el computador.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="img/daw.jpg" alt="DAW">
+      <h3>DAW (Digital Audio Workstation)</h3>
+      <p>Software para grabar, editar y producir música desde tu computadora.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="img/microfono.jpg" alt="Micrófono">
+      <h3>Micrófono</h3>
+      <p>Ideal para capturar voces e instrumentos acústicos para integrarlos con los sintetizadores.</p>
+    </div>
+
+    <div class="tarjeta">
+      <img src="img/cables.jpg" alt="Cables y fuentes">
+      <h3>Cables y Alimentación</h3>
+      <p>Los cables de audio, MIDI y de corriente son esenciales para conectar todo correctamente.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALERIA DE IMAGENES -->
+
+<div class="galeria-scroll">
+  <h3>Galería de Equipos</h3>
+  <div class="scroll-container">
+    <div class="scroll-content">
+      <img src="img/galeria1.jpg" alt="Equipo 1">
+      <img src="img/galeria2.jpg" alt="Equipo 2">
+      <img src="img/galeria3.jpg" alt="Equipo 3">
+      <img src="img/galeria4.jpg" alt="Equipo 4">
+      <img src="img/galeria5.jpg" alt="Equipo 5">
+      <img src="img/galeria6.jpg" alt="Equipo 6">
+
+      <!-- Duplicamos para que parezca infinito -->
+      <img src="img/galeria1.jpg" alt="Equipo 1 duplicado">
+      <img src="img/galeria2.jpg" alt="Equipo 2 duplicado">
+      <img src="img/galeria3.jpg" alt="Equipo 3 duplicado">
+      <img src="img/galeria4.jpg" alt="Equipo 4 duplicado">
+      <img src="img/galeria5.jpg" alt="Equipo 5 duplicado">
+      <img src="img/galeria6.jpg" alt="Equipo 6 duplicado">
+    </div>
+  </div>
+</div>
+
+
+<!-- SINTETIZADOR INTERACTIVO -->
+
+<section class="sintetizador-interactivo">
+  <h2>Sintetizador Interactivo 🎚️</h2>
+<p style="margin-bottom: 16px;">
+  Explora cómo suenan las distintas formas de onda y controla su frecuencia y amplitud.
+</p>
+
+<p class="explicacion-sintetizador">
+  Esta sección te permite interactuar con un mini sintetizador digital. Puedes elegir una forma de onda, ajustar la frecuencia y el volumen, y escuchar cómo cambia el sonido. Además, verás una animación en tiempo real que representa la forma de onda que estás generando. ¡Explora cómo nace el sonido en la síntesis electrónica!
+</p>
+
+
+
+  <label for="formaOnda">Forma de onda:</label>
+  <select id="formaOnda">
+    <option value="sine">Senoidal</option>
+    <option value="square">Cuadrada</option>
+    <option value="sawtooth">Diente de sierra</option>
+    <option value="triangle">Triangular</option>
+  </select>
+
+  <div class="controles">
+    <label for="frecuencia">Frecuencia: <span id="valorFrecuencia">440</span> Hz</label>
+    <input type="range" id="frecuencia" min="100" max="1000" value="440">
+    
+    <label for="amplitud">Volumen: <span id="valorAmplitud">0.5</span></label>
+    <input type="range" id="amplitud" min="0" max="1" step="0.01" value="0.5">
+  </div>
+
+  <button id="play">🎵 Reproducir</button>
+  <button id="stop">⏹️ Parar</button>
+
+
+  <canvas id="visualizador" width="600" height="200"></canvas>
+</section>
+
+
+
+
+
+  <script src="script.js"></script>
+    
+    <!-- Hacer que suene las ondas -->
+
+<script>
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  function playWave(type) {
+    const osc = audioCtx.createOscillator();
+    osc.type = type;
+    osc.frequency.value = 440; // La nota A (La4)
+
+    const gain = audioCtx.createGain();
+    gain.gain.setValueAtTime(0.2, audioCtx.currentTime); // volumen moderado
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start();
+    osc.stop(audioCtx.currentTime + 1); // suena por 1 segundo
+  }
+
+  function playSine() {
+    playWave('sine');
+  }
+
+  function playSquare() {
+    playWave('square');
+  }
+
+  function playTriangle() {
+    playWave('triangle');
+  }
+
+  function playSawtooth() {
+    playWave('sawtooth');
+  }
+</script>
+
+<!--WEB API PARA VISUALIZACION BASICA-->
+
+<script>
+const playBtn = document.getElementById("play");
+const formaOnda = document.getElementById("formaOnda");
+const frecuencia = document.getElementById("frecuencia");
+const amplitud = document.getElementById("amplitud");
+const valorFrecuencia = document.getElementById("valorFrecuencia");
+const valorAmplitud = document.getElementById("valorAmplitud");
+const canvas = document.getElementById("visualizador");
+const ctx = canvas.getContext("2d");
+
+let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let analyser = audioCtx.createAnalyser();
+let osc;
+let gainNode;
+
+function crearOscilador() {
+  if (osc) osc.stop();
+
+  osc = audioCtx.createOscillator();
+  gainNode = audioCtx.createGain();
+
+  osc.type = formaOnda.value;
+  osc.frequency.value = frecuencia.value;
+  gainNode.gain.value = amplitud.value;
+
+  osc.connect(gainNode);
+  gainNode.connect(analyser);
+  analyser.connect(audioCtx.destination);
+
+  osc.start();
+  visualizar();
+  setTimeout(() => osc.stop(), 2 * 1000); // Sonido dura 2s
+}
+
+playBtn.addEventListener("click", crearOscilador);
+
+frecuencia.addEventListener("input", () => {
+  valorFrecuencia.textContent = frecuencia.value;
+});
+amplitud.addEventListener("input", () => {
+  valorAmplitud.textContent = amplitud.value;
+});
+
+function visualizar() {
+  analyser.fftSize = 2048;
+  let bufferLength = analyser.fftSize;
+  let dataArray = new Uint8Array(bufferLength);
+
+  function dibujar() {
+    requestAnimationFrame(dibujar);
+
+    analyser.getByteTimeDomainData(dataArray);
+
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "#0f0";
+    ctx.beginPath();
+
+    let sliceWidth = canvas.width * 1.0 / bufferLength;
+    let x = 0;
+
+    for (let i = 0; i < bufferLength; i++) {
+      let v = dataArray[i] / 128.0;
+      let y = v * canvas.height / 2;
+
+      if (i === 0) {
+        ctx.moveTo(x, y);
+      } else {
+        ctx.lineTo(x, y);
+      }
+
+      x += sliceWidth;
+    }
+
+    ctx.lineTo(canvas.width, canvas.height / 2);
+    ctx.stroke();
+  }
+
+  dibujar();
+}
+</script>
+
+<!-- PARTE BAJA-->
+
+<footer class="footer">
+  <div class="footer-column">
+    <div class="logo-placeholder">
+    <img src="ruta-del-logo.png" alt="Logo del sitio" class="logo-img">
+
+    </div>
+    <div class="social-icons">
+      <a href="#" target="_blank">Facebook</a> |
+      <a href="#" target="_blank">Twitter</a> |
+      <a href="#" target="_blank">Instagram</a> |
+      <a href="#" target="_blank">YouTube</a> |
+      <a href="#" target="_blank">SoundCloud</a>
+    </div>
+  </div>
+
+  <div class="footer-column">
+    <h4>Sobre este sitio</h4>
+    <p>
+      Este proyecto fue desarrollado como parte de un trabajo académico para explorar y explicar el fascinante mundo de los sintetizadores, su historia, su funcionamiento y su potencial sonoro.
+    </p>
+  </div>
+
+  <div class="footer-column">
+    <h4>¿Sabías que...?</h4>
+    <p>
+      El primer sintetizador comercial fue creado por Robert Moog en los años 60, revolucionando la música electrónica y el diseño sonoro hasta hoy.
+    </p>
+  </div>
+</footer>
+
+
+
+
+
+</body>
+</html>
