@@ -7,8 +7,8 @@
 
 /* Estilo general del cuerpo */
 body {
-  font-family: Arial, sans-serif;
-  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(255, 255, 255);
   color: #333;  /* ← Gris oscuro, se ve bien en fondos claros */
   margin: 0;
   padding: 0;
@@ -26,7 +26,7 @@ body {
 
 .logo {
   font-size: 1.5rem;
-  color: #00ffcc;
+  color: #ffffff;
 }
 
 .nav-links {
@@ -42,8 +42,9 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #00ffcc;
+  color: #f1a919;
 }
+
 
 /* Sección de inicio (slider) */
 .hero {
@@ -75,13 +76,13 @@ body {
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  color: #fff;
+  color: #ffa844;
   z-index: 2;
 }
 
 .welcome-text h2 {
   font-size: 2.5rem;
-  color: #00ffcc;
+  color: #424242;
 }
 
 .welcome-text p {
