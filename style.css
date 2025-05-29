@@ -386,49 +386,69 @@ canvas {
 
 /* PARTE BAJA*/
 
-.footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  background-color: #1a1a1a;
-  color: #fff;
-  padding: 40px 20px;
-  gap: 20px;
+.site-footer {
+  background: #0d0d0d;
+  color: #e0e0e0;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.footer-column {
-  flex: 1;
-  min-width: 250px;
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.footer-column h4 {
-  margin-bottom: 10px;
-  color: #f0f0f0;
-}
-
-.footer-column p {
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.logo-placeholder {
-  background-color: #444444;
-  color: #cccccc;
-  font-size: 14px;
-  padding: 20px;
+.footer-branding {
   text-align: center;
-  margin-bottom: 15px;
-  border-radius: 8px;
 }
 
-.social-icons a {
-  color: #ccc;
-  font-size: 14px;
-  text-decoration: none;
-  margin-right: 10px;
+.footer-logo {
+  width: 100px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 2px #1DB954);
+}
+
+.footer-tagline {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.footer-section h4,
+.footer-social h4 {
+  color: #1DB954;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-social .social-icons a {
+  font-size: 1.3rem;
+  color: #e0e0e0;
   transition: color 0.3s ease;
 }
 
-.social-icons a:hover {
-  color: #1db954; /* verde brillante tipo Spotify */
+.footer-social .social-icons a:hover {
+  color: #1DB954;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888;
+  border-top: 1px solid #222;
+  padding-top: 15px;
 }
