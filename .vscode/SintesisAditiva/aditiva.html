@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Síntesis Aditiva</title>
+  <link rel="stylesheet" href="aditiva.css" />
+</head>
+<body>
+
+  <!-- LOGIN -->
+  <div id="login-container">
+    <h2>Inicia sesión o regístrate</h2>
+    <input type="email" id="email" placeholder="Correo electrónico" />
+    <input type="password" id="password" placeholder="Contraseña" />
+    <br />
+    <button id="registerBtn">Registrarse</button>
+    <button id="loginBtn">Iniciar sesión</button>
+    <p id="message"></p>
+  </div>
+
+  <!-- SINTETIZADOR -->
+  <div id="sintetizador" style="display: none;">
+    <h1>Síntesis Aditiva 🎛️</h1>
+    <p>Escoge el tipo de onda, ajusta frecuencia, volumen, envolvente y modulación LFO para cada oscilador.</p>
+
+    <div class="sintesis-container">
+      <!-- OSCILADORES -->
+      <!-- Se repiten 3 bloques con clase "oscilador" -->
+      <!-- Oscilador 1 -->
+      <div class="oscilador">
+        <h2>Oscilador 1</h2>
+        <label>Onda:
+          <select class="forma-onda">
+            <option value="sine">Senoidal</option>
+            <option value="square">Cuadrada</option>
+            <option value="sawtooth">Diente de sierra</option>
+            <option value="triangle">Triangular</option>
+          </select>
+        </label>
+        <label>Frecuencia: <span class="freq-val">440</span> Hz
+          <input type="range" class="frecuencia" min="100" max="1000" value="440"/>
+        </label>
+        <label>Volumen: <span class="vol-val">0.5</span>
+          <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
+        </label>
+        <div class="adsr">
+          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+        </div>
+        <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
+        <label>Frecuencia LFO (Hz):
+          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
+        </label>
+        <label>Profundidad LFO (Hz):
+          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
+        </label>
+      </div>
+
+      <!-- Oscilador 2 -->
+      <div class="oscilador">
+        <h2>Oscilador 2</h2>
+        <label>Onda:
+          <select class="forma-onda">
+            <option value="sine">Senoidal</option>
+            <option value="square">Cuadrada</option>
+            <option value="sawtooth">Diente de sierra</option>
+            <option value="triangle">Triangular</option>
+          </select>
+        </label>
+        <label>Frecuencia: <span class="freq-val">440</span> Hz
+          <input type="range" class="frecuencia" min="100" max="1000" value="440"/>
+        </label>
+        <label>Volumen: <span class="vol-val">0.5</span>
+          <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
+        </label>
+        <div class="adsr">
+          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+        </div>
+        <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
+        <label>Frecuencia LFO (Hz):
+          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
+        </label>
+        <label>Profundidad LFO (Hz):
+          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
+        </label>
+      </div>
+
+      <!-- Oscilador 3 -->
+      <div class="oscilador">
+        <h2>Oscilador 3</h2>
+        <label>Onda:
+          <select class="forma-onda">
+            <option value="sine">Senoidal</option>
+            <option value="square">Cuadrada</option>
+            <option value="sawtooth">Diente de sierra</option>
+            <option value="triangle">Triangular</option>
+          </select>
+        </label>
+        <label>Frecuencia: <span class="freq-val">440</span> Hz
+          <input type="range" class="frecuencia" min="100" max="1000" value="440"/>
+        </label>
+        <label>Volumen: <span class="vol-val">0.5</span>
+          <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
+        </label>
+        <div class="adsr">
+          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+        </div>
+        <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
+        <label>Frecuencia LFO (Hz):
+          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
+        </label>
+        <label>Profundidad LFO (Hz):
+          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
+        </label>
+      </div>
+    </div>
+
+    <div class="botones">
+      <button id="play">▶️ Reproducir</button>
+      <button id="stop">⏹️ Parar</button>
+    </div>
+
+    <canvas id="visualizador" width="800" height="200"></canvas>
+    <br />
+    <button id="logoutBtn">Cerrar sesión</button>
+  </div>
+
+  <!-- SDKs Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+
+  <!-- Configuración Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqjYhDRYgQEyMLDHJTiKe2R8cRmfABWto",
+      authDomain: "sintesis-aditiva.firebaseapp.com",
+      projectId: "sintesis-aditiva",
+      storageBucket: "sintesis-aditiva.appspot.com",
+      messagingSenderId: "457314429493",
+      appId: "1:457314429493:web:cc4faca7f894b1edb31f7c"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <!-- Librería Tone.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
+
+  <!-- Tu JS principal -->
+  <script src="aditiva.js"></script>
+</body>
+</html>
+

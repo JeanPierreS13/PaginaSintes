@@ -1,0 +1,107 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #111;
+  color: #f3f3f3;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.sintesis-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.oscilador {
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px;
+  width: 280px;
+  box-shadow: 0 0 10px #333;
+}
+
+.oscilador h2 {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  text-align: left;
+}
+
+.adsr {
+  margin-top: 10px;
+}
+
+input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+}
+
+button {
+  padding: 12px 24px;
+  margin-top: 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff4081;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e91e63;
+}
+
+canvas {
+  margin-top: 40px;
+  border: 1px solid #555;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+input {
+  margin: 5px;
+  padding: 8px;
+  width: 250px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px;
+}
+
+#message {
+  color: red;
+  margin-top: 10px;
+}
