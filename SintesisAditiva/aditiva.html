@@ -1,3 +1,4 @@
+<!-- aditiva.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,8 +26,6 @@
     <p>Escoge el tipo de onda, ajusta frecuencia, volumen, envolvente y modulación LFO para cada oscilador.</p>
 
     <div class="sintesis-container">
-      <!-- OSCILADORES -->
-      <!-- Se repiten 3 bloques con clase "oscilador" -->
       <!-- Oscilador 1 -->
       <div class="oscilador">
         <h2>Oscilador 1</h2>
@@ -45,10 +44,10 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
         <label>Frecuencia LFO (Hz):
@@ -62,6 +61,7 @@
       <!-- Oscilador 2 -->
       <div class="oscilador">
         <h2>Oscilador 2</h2>
+        <!-- (idéntico al Oscilador 1) -->
         <label>Onda:
           <select class="forma-onda">
             <option value="sine">Senoidal</option>
@@ -77,10 +77,10 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
         <label>Frecuencia LFO (Hz):
@@ -94,6 +94,7 @@
       <!-- Oscilador 3 -->
       <div class="oscilador">
         <h2>Oscilador 3</h2>
+        <!-- (idéntico al Oscilador 1) -->
         <label>Onda:
           <select class="forma-onda">
             <option value="sine">Senoidal</option>
@@ -109,10 +110,10 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack: <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay: <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain: <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release: <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
         <label>Frecuencia LFO (Hz):
@@ -148,14 +149,13 @@
       messagingSenderId: "457314429493",
       appId: "1:457314429493:web:cc4faca7f894b1edb31f7c"
     };
-
     firebase.initializeApp(firebaseConfig);
   </script>
 
   <!-- Librería Tone.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
 
-  <!-- Tu JS principal -->
+  <!-- JS principal -->
   <script src="aditiva.js"></script>
 </body>
 </html>
