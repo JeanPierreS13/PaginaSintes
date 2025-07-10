@@ -452,3 +452,74 @@ canvas {
   border-top: 1px solid #222;
   padding-top: 15px;
 }
+
+
+/*ESTILO PARA QUE SE VEA MEJOR*/
+
+h2.sintesis-title {
+  font-size: 2rem;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-top: 40px;
+  animation: vibrar 0.3s infinite alternate;
+}
+
+/* Animación opcional para hacerlo más visible */
+@keyframes vibrar {
+  from { transform: scale(1); }
+  to { transform: scale(1.03); }
+}
+
+/*ESTILO PARA QUE SE VEA MEJOR CORREGIDO*/
+
+.btn-ver-mas {
+  display: inline-block;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+
+.btn-ver-mas:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/*NAV BAR BOTON SINTES*/
+
+.navbar {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0;
+}
+
+.nav-demo-link {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-demo-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
