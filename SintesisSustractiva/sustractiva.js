@@ -1,13 +1,45 @@
+// 🔥 Configura Firebase (reemplaza con tu configuración real)
+const firebaseConfig = {
+  apiKey: "AIzaSyDqjYhDRYgQEyMLDHJTiKe2R8cRmfABWto",
+      authDomain: "sintesis-aditiva.firebaseapp.com",
+      projectId: "sintesis-aditiva",
+      storageBucket: "sintesis-aditiva.appspot.com",
+      messagingSenderId: "457314429493",
+      appId: "1:457314429493:web:cc4faca7f894b1edb31f7c"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+const loginContainer = document.getElementById("login-container");
+const sintetizadorContainer = document.getElementById("sintetizador");
+
+document.getElementById("registerBtn").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => document.getElementById("message").innerText = "✅ Registro exitoso.")
+    .catch(err => document.getElementById("message").innerText = "❌ " + err.message);
+});
+
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      document.getElementById("message").innerText = "✅ Bienvenido.";
+      loginContainer.style.display = "none";
+      sintetizadorContainer.style.display = "block";
+    })
+    .catch(err => document.getElementById("message").innerText = "❌ " + err.message);
+});
+
+
 const AudioContext = window.AudioContext || window.webkitAudioContext;
 let audioCtx;
 let analyser, canvasCtx;
 
-let currentOsc = null;
-let gainNode = null;
-let filter = null;
-let drawVisual;
-
-const activeNotes = {};
+let activeNotes = {};
 
 const waveSelect = document.getElementById('waveform');
 const cutoff = document.getElementById('cutoff');
@@ -30,30 +62,27 @@ startButton.addEventListener('click', () => {
 });
 
 stopButton.addEventListener('click', () => {
-  for (let key in activeNotes) {
-    stopNote(key);
-  }
+  for (let key in activeNotes) stopNote(key);
 });
 
 cutoff.addEventListener('input', () => {
   cutoffDisplay.textContent = `${cutoff.value} Hz`;
 });
 
-const keyboard = document.querySelectorAll('.keyboard button');
-keyboard.forEach(btn => {
-  btn.addEventListener('mousedown', () => playNote(btn.dataset.note));
-  btn.addEventListener('mouseup', () => stopNote(btn.dataset.note));
-  btn.addEventListener('mouseleave', () => stopNote(btn.dataset.note));
+const keys = document.querySelectorAll('.keyboard .key');
+keys.forEach(key => {
+  key.addEventListener('mousedown', () => playNote(key.dataset.note));
+  key.addEventListener('mouseup', () => stopNote(key.dataset.note));
+  key.addEventListener('mouseleave', () => stopNote(key.dataset.note));
 });
 
 document.addEventListener('keydown', (e) => {
   const notes = {
-    'a': 261.63, 's': 293.66, 'd': 329.63, 'f': 349.23,
-    'g': 392.00, 'h': 440.00, 'j': 493.88, 'k': 523.25
+    'a': 261.63, 'w': 277.18, 's': 293.66, 'e': 311.13, 'd': 329.63,
+    'f': 349.23, 't': 369.99, 'g': 392.00, 'y': 415.30, 'h': 440.00,
+    'u': 466.16, 'j': 493.88, 'k': 523.25
   };
-  if (notes[e.key] && !activeNotes[e.key]) {
-    playNote(notes[e.key], e.key);
-  }
+  if (notes[e.key] && !activeNotes[e.key]) playNote(notes[e.key], e.key);
 });
 
 document.addEventListener('keyup', (e) => {
@@ -139,7 +168,7 @@ function draw() {
   const dataArray = new Uint8Array(bufferLength);
 
   function drawOscilloscope() {
-    drawVisual = requestAnimationFrame(drawOscilloscope);
+    requestAnimationFrame(drawOscilloscope);
     analyser.getByteTimeDomainData(dataArray);
 
     canvasCtx.fillStyle = 'black';
@@ -155,10 +184,7 @@ function draw() {
     for (let i = 0; i < bufferLength; i++) {
       const v = dataArray[i] / 128.0;
       const y = v * canvas.height / 2;
-
-      if (i === 0) canvasCtx.moveTo(x, y);
-      else canvasCtx.lineTo(x, y);
-
+      i === 0 ? canvasCtx.moveTo(x, y) : canvasCtx.lineTo(x, y);
       x += sliceWidth;
     }
 
@@ -168,3 +194,4 @@ function draw() {
 
   drawOscilloscope();
 }
+

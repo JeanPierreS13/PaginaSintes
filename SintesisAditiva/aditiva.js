@@ -1,6 +1,5 @@
-/* aditiva.js */
 window.addEventListener("DOMContentLoaded", () => {
-  /* ---- 1.  Autenticación Firebase ---- */
+  // Firebase Auth
   const auth = firebase.auth();
   const loginContainer = document.getElementById("login-container");
   const sintetizadorContainer = document.getElementById("sintetizador");
@@ -33,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ---- 2. Parámetros UI y arreglos ---- */
+  // Parámetros
   const playBtn = document.getElementById("play");
   const stopBtn = document.getElementById("stop");
   const canvas = document.getElementById("visualizador");
@@ -46,6 +45,23 @@ window.addEventListener("DOMContentLoaded", () => {
   const toneLFOs = [];
   let merger, analyser, isPlaying = false;
 
+  // FRECUENCIA BASE y notas relativas
+  let baseFreq = 440;
+  const semitoneRatio = Math.pow(2, 1 / 12);
+  const keyOffsets = {
+    KeyA: 0, KeyW: 1, KeyS: 2, KeyE: 3, KeyD: 4, KeyF: 5,
+    KeyT: 6, KeyG: 7, KeyY: 8, KeyH: 9, KeyU: 10, KeyJ: 11, KeyK: 12
+  };
+  const keyFreq = {};
+
+  function actualizarKeyFreq() {
+    for (const key in keyOffsets) {
+      keyFreq[key] = baseFreq * Math.pow(semitoneRatio, keyOffsets[key]);
+    }
+  }
+  actualizarKeyFreq();
+
+  // Obtener todos los osciladores
   document.querySelectorAll(".oscilador").forEach(container => {
     osciladores.push({
       container,
@@ -62,7 +78,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---- 3. Funciones Play / Stop ---- */
   function reproducirTodo() {
     if (isPlaying) return;
     isPlaying = true;
@@ -110,14 +125,27 @@ window.addEventListener("DOMContentLoaded", () => {
       }
 
       p.wave.addEventListener("input", () => osc.type = p.wave.value);
-      p.freq.addEventListener("input", () => {
-        p.container.querySelector(".freq-val").textContent = p.freq.value;
-        osc.frequency.value = parseFloat(p.freq.value);
-      });
+
+      if (i === 0) {
+        p.freq.addEventListener("input", () => {
+          const nuevaFreq = parseFloat(p.freq.value);
+          p.container.querySelector(".freq-val").textContent = nuevaFreq;
+          osc.frequency.value = nuevaFreq;
+          baseFreq = nuevaFreq;
+          actualizarKeyFreq();
+        });
+      } else {
+        p.freq.addEventListener("input", () => {
+          p.container.querySelector(".freq-val").textContent = p.freq.value;
+          osc.frequency.value = parseFloat(p.freq.value);
+        });
+      }
+
       p.vol.addEventListener("input", () => {
         p.container.querySelector(".vol-val").textContent = p.vol.value;
         gain.gain.value = parseFloat(p.vol.value);
       });
+
       p.attack.addEventListener("input", () => env.attack = parseFloat(p.attack.value));
       p.decay.addEventListener("input", () => env.decay = parseFloat(p.decay.value));
       p.sustain.addEventListener("input", () => env.sustain = parseFloat(p.sustain.value));
@@ -126,6 +154,7 @@ window.addEventListener("DOMContentLoaded", () => {
       p.lfoFreq.addEventListener("input", () => {
         if (toneLFOs[i]) toneLFOs[i].frequency.value = parseFloat(p.lfoFreq.value);
       });
+
       p.lfoDepth.addEventListener("input", () => {
         if (toneLFOs[i]) {
           const depth = parseFloat(p.lfoDepth.value);
@@ -196,19 +225,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
   stopBtn.addEventListener("click", pararTodo);
 
-  /* ---- 4. Teclado físico y visual (Oscilador 1) ---- */
-  const keyFreq = {
-    KeyA: 261.63, KeyW: 277.18, KeyS: 293.66, KeyE: 311.13,
-    KeyD: 329.63, KeyF: 349.23, KeyT: 369.99, KeyG: 392.00,
-    KeyY: 415.30, KeyH: 440.00, KeyU: 466.16, KeyJ: 493.88, KeyK: 523.25
-  };
-
+  // ✅ TECLAS PRESIONADAS (teclado físico y visual)
   const keysPressed = new Set();
 
   // Teclado físico
   window.addEventListener("keydown", e => {
     if (keysPressed.has(e.code) || !keyFreq[e.code]) return;
     keysPressed.add(e.code);
+
     const osc1 = toneOscs[0], env1 = toneEnvs[0];
     if (!osc1 || !env1) return;
     osc1.frequency.value = keyFreq[e.code];
@@ -221,6 +245,7 @@ window.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("keyup", e => {
     if (!keysPressed.has(e.code)) return;
     keysPressed.delete(e.code);
+
     const env1 = toneEnvs[0];
     if (env1) env1.triggerRelease();
 
@@ -228,7 +253,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (btn) btn.classList.remove("activa");
   });
 
-  // Teclado visual
+  // Teclado visual (con clic)
   document.querySelectorAll("#teclado button").forEach(btn => {
     const noteCode = btn.dataset.note;
 
@@ -247,7 +272,10 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     btn.addEventListener("mouseleave", () => {
+      const env1 = toneEnvs[0];
+      if (env1) env1.triggerRelease();
       btn.classList.remove("activa");
     });
   });
 });
+

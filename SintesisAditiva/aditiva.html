@@ -1,4 +1,3 @@
-<!-- aditiva.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +25,7 @@
     <p>Escoge el tipo de onda, ajusta frecuencia, volumen, envolvente y modulación LFO para cada oscilador.</p>
 
     <div class="sintesis-container">
-      <!-- Oscilador 1 -->
+      <!-- Osciladores 1, 2 y 3 (idénticos con diferente instancia) -->
       <div class="oscilador">
         <h2>Oscilador 1</h2>
         <label>Onda:
@@ -44,24 +43,18 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
-        <label>Frecuencia LFO (Hz):
-          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
-        </label>
-        <label>Profundidad LFO (Hz):
-          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
-        </label>
+        <label>Frecuencia LFO (Hz): <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/></label>
+        <label>Profundidad LFO (Hz): <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/></label>
       </div>
 
-      <!-- Oscilador 2 -->
       <div class="oscilador">
         <h2>Oscilador 2</h2>
-        <!-- (idéntico al Oscilador 1) -->
         <label>Onda:
           <select class="forma-onda">
             <option value="sine">Senoidal</option>
@@ -77,45 +70,18 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
-        <label>Frecuencia LFO (Hz):
-          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
-        </label>
-        <label>Profundidad LFO (Hz):
-          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
-        </label>
+        <label>Frecuencia LFO (Hz): <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/></label>
+        <label>Profundidad LFO (Hz): <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/></label>
       </div>
 
-<!-- TECLADO VISUAL PARA OSCILADOR 1 -->
-        <div class="teclado-container">
-          <h3>🎹 Teclado Virtual - Oscilador 1</h3>
-          <div id="teclado">
-            <button data-note="KeyA" class="white">C</button>
-            <button data-note="KeyW" class="black">C#</button>
-            <button data-note="KeyS" class="white">D</button>
-            <button data-note="KeyE" class="black">D#</button>
-            <button data-note="KeyD" class="white">E</button>
-            <button data-note="KeyF" class="white">F</button>
-            <button data-note="KeyT" class="black">F#</button>
-            <button data-note="KeyG" class="white">G</button>
-            <button data-note="KeyY" class="black">G#</button>
-            <button data-note="KeyH" class="white">A</button>
-            <button data-note="KeyU" class="black">A#</button>
-            <button data-note="KeyJ" class="white">B</button>
-            <button data-note="KeyK" class="white">C5</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Oscilador 3 -->
       <div class="oscilador">
         <h2>Oscilador 3</h2>
-        <!-- (idéntico al Oscilador 1) -->
         <label>Onda:
           <select class="forma-onda">
             <option value="sine">Senoidal</option>
@@ -131,39 +97,53 @@
           <input type="range" class="volumen" min="0" max="1" step="0.01" value="0.5"/>
         </label>
         <div class="adsr">
-          <label>Attack:   <input type="range" class="attack"   min="0" max="2" step="0.01" value="0.1"/></label>
-          <label>Decay:    <input type="range" class="decay"    min="0" max="2" step="0.01" value="0.2"/></label>
-          <label>Sustain:  <input type="range" class="sustain"  min="0" max="1" step="0.01" value="0.7"/></label>
-          <label>Release:  <input type="range" class="release"  min="0" max="3" step="0.01" value="1.0"/></label>
+          <label>Attack:   <input type="range" class="attack" min="0" max="2" step="0.01" value="0.1"/></label>
+          <label>Decay:    <input type="range" class="decay" min="0" max="2" step="0.01" value="0.2"/></label>
+          <label>Sustain:  <input type="range" class="sustain" min="0" max="1" step="0.01" value="0.7"/></label>
+          <label>Release:  <input type="range" class="release" min="0" max="3" step="0.01" value="1.0"/></label>
         </div>
         <label><input type="checkbox" class="usar-lfo" /> Usar LFO (modula frecuencia)</label>
-        <label>Frecuencia LFO (Hz):
-          <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/>
-        </label>
-        <label>Profundidad LFO (Hz):
-          <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/>
-        </label>
+        <label>Frecuencia LFO (Hz): <input type="range" class="lfo-freq" min="0.1" max="20" step="0.1" value="5"/></label>
+        <label>Profundidad LFO (Hz): <input type="range" class="lfo-depth" min="0" max="100" step="1" value="20"/></label>
       </div>
 
-   <div class="botones">
-      <button id="play">▶️ Reproducir</button>
-      <button id="stop">⏹️ Parar</button>
+      <!-- TECLADO VIRTUAL -->
+      <div class="teclado-container">
+        <h3>🎹 Teclado Virtual - Oscilador 1</h3>
+        <div id="teclado">
+          <button data-note="KeyA" class="white">C</button>
+          <button data-note="KeyW" class="black">C#</button>
+          <button data-note="KeyS" class="white">D</button>
+          <button data-note="KeyE" class="black">D#</button>
+          <button data-note="KeyD" class="white">E</button>
+          <button data-note="KeyF" class="white">F</button>
+          <button data-note="KeyT" class="black">F#</button>
+          <button data-note="KeyG" class="white">G</button>
+          <button data-note="KeyY" class="black">G#</button>
+          <button data-note="KeyH" class="white">A</button>
+          <button data-note="KeyU" class="black">A#</button>
+          <button data-note="KeyJ" class="white">B</button>
+          <button data-note="KeyK" class="white">C5</button>
         </div>
-
-       <canvas id="visualizador" width="800" height="200"></canvas>
-       <br />
-       <button id="logoutBtn">Cerrar sesión</button>
       </div>
-
     </div>
 
-    
+    <div class="botones">
+      <button id="play">▶️ Reproducir</button>
+      <button id="stop">⏹️ Parar</button>
+    </div>
 
-  <!-- SDKs Firebase -->
+    <canvas id="visualizador" width="800" height="200"></canvas>
+    <br />
+    <button id="logoutBtn">Cerrar sesión</button>
+  </div>
+
+  <!-- Firebase y Tone.js -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
 
-  <!-- Configuración Firebase -->
+  <!-- Firebase Config -->
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDqjYhDRYgQEyMLDHJTiKe2R8cRmfABWto",
@@ -176,10 +156,7 @@
     firebase.initializeApp(firebaseConfig);
   </script>
 
-  <!-- Librería Tone.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.39/Tone.min.js"></script>
-
-  <!-- JS principal -->
+  <!-- Código principal -->
   <script src="aditiva.js"></script>
 </body>
 </html>
